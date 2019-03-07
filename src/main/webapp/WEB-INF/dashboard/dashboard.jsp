@@ -1,5 +1,5 @@
 <%-- 
-    Copyright © 2019 Dennis Schulmeister-Zimolong
+    Copyright © 2019 Dennis Jonathan Martin, Nicolas Waguet, Nis Karbstein
 
     E-Mail: dhbw@windows3.de
     Webseite: https://www.wpvs.de/
