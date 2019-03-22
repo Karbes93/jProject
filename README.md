@@ -1,4 +1,4 @@
-Beispielanwendung "Project"
+Beispielanwendung "jProject"
 =========================
 
 Kurzbeschreibung
