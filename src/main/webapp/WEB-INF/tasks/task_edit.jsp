@@ -17,10 +17,10 @@
     <jsp:attribute name="title">
         <c:choose>
             <c:when test="${edit}">
-                Aufgabe bearbeiten
+                Projekt bearbeiten
             </c:when>
             <c:otherwise>
-                Aufgabe anlegen
+                Projekt anlegen
             </c:otherwise>
         </c:choose>
     </jsp:attribute>
