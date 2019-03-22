@@ -45,14 +45,12 @@ public class User implements Serializable {
     @Size(min = 5, max = 64, message = "Der Benutzername muss zwischen fünf und 64 Zeichen lang sein.")
     @NotNull(message = "Der Benutzername darf nicht leer sein.")
     private String username;
-    
-    @Id
+   
     @Column(name = "VORNAME", length = 64)
     @Size(min = 2, max = 64, message = "Der Vorname muss zwischen zwei und 64 Zeichen lang sien.")
     @NotNull(message = "Der Vorname darf nicht leer sein.")
     private String vorname;
-    
-    @Id
+   
     @Column(name = "NACHNAME", length = 64)
     @Size(min = 2, max = 64, message = "Der Nachname muss zwischen zwei und 64 Zeichen lang sien.")
     @NotNull(message = "Der Nachname darf nicht leer sein.")
