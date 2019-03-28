@@ -13,8 +13,15 @@ Creative Commons Namensnennung 4.0 International Lizenz.
     margin-bottom: 1rem;
 }
 
+table {
+    background-color: white;
+    border-radius: 0.5em;
+    border-color: grey
+}
+
 td, th {
     padding-right: 2em;
     text-align: left;
     vertical-align: baseline;
+    margin: 0.5em;
 }
