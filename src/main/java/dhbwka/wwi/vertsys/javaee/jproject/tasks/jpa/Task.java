@@ -54,6 +54,10 @@ public class Task implements Serializable {
     @Lob
     @NotNull
     private String longText;
+    
+    @Lob
+    @NotNull
+    private String longText1;
 
     @NotNull(message = "Das Datum darf nicht leer sein.")
     private Date dueDate;
@@ -69,11 +73,12 @@ public class Task implements Serializable {
     public Task() {
     }
 
-    public Task(User owner, Category category, String shortText, String longText, Date dueDate, Time dueTime) {
+    public Task(User owner, Category category, String shortText, String longText, String longText1, Date dueDate, Time dueTime) {
         this.owner = owner;
         this.category = category;
         this.shortText = shortText;
         this.longText = longText;
+        this.longText1 = longText1;
         this.dueDate = dueDate;
         this.dueTime = dueTime;
     }
@@ -118,6 +123,14 @@ public class Task implements Serializable {
 
     public void setLongText(String longText) {
         this.longText = longText;
+    }
+    
+    public String getLongText1() {
+        return longText1;
+    }
+    
+    public void setLongText1(String longText1) {
+        this.longText1 = longText1;
     }
 
     public Date getDueDate() {

@@ -13,7 +13,7 @@ package dhbwka.wwi.vertsys.javaee.jproject.tasks.jpa;
  * Statuswerte einer Aufgabe.
  */
 public enum TaskStatus {
-    OPEN, IN_PROGRESS, FINISHED, CANCELED, POSTPONED;
+    OPEN, IN_PROGRESS, FINISHED, CANCELED, WAITING;
 
     /**
      * Bezeichnung ermitteln
@@ -30,8 +30,8 @@ public enum TaskStatus {
                 return "Erledigt";
             case CANCELED:
                 return "Abgebrochen";
-            case POSTPONED:
-                return "Zurückgestellt";
+            case WAITING:
+                return "Warten auf Feedback";
             default:
                 return this.toString();
         }

@@ -51,10 +51,10 @@
                     <input type="text" name="task_owner" value="${task_form.values["task_owner"][0]}" readonly="readonly">
                 </div>
 
-                <label for="task_category">Kategorie:</label>
+                <label for="task_category">Abteilung:</label>
                 <div class="side-by-side">
                     <select name="task_category">
-                        <option value="">Keine Kategorie</option>
+                        <option value="">Keine Abteilung</option>
 
                         <c:forEach items="${categories}" var="category">
                             <option value="${category.id}" ${task_form.values["task_category"][0] == category.id.toString() ? 'selected' : ''}>
@@ -65,7 +65,7 @@
                 </div>
 
                 <label for="task_due_date">
-                    Fällig am:
+                    Fällig bis:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
@@ -88,7 +88,7 @@
                 </div>
 
                 <label for="task_short_text">
-                    Bezeichnung:
+                    Projektname:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
@@ -100,6 +100,13 @@
                 </label>
                 <div class="side-by-side">
                     <textarea name="task_long_text"><c:out value="${task_form.values['task_long_text'][0]}"/></textarea>
+                </div>
+                
+                <label for="task_long_text1">
+                    Projektmitglieder:
+                </label>
+                <div class="side-by-side">
+                    <textarea name="task_long_text1"><c:out value="${task_form.values['task_long_text1'][0]}"/></textarea>
                 </div>
 
                 <%-- Button zum Abschicken --%>

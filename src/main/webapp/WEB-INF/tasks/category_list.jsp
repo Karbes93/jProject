@@ -15,7 +15,7 @@
 
 <template:base>
     <jsp:attribute name="title">
-        Kategorien bearbeiten
+        Abteilung bearbeiten
     </jsp:attribute>
 
     <jsp:attribute name="head">
@@ -39,7 +39,7 @@
 
             <%-- Feld zum Anlegen einer neuen Kategorie --%>
             <div class="column margin">
-                <label for="j_username">Neue Kategorie:</label>
+                <label for="j_username">Neue Abteilung:</label>
                 <input type="text" name="name" value="${categories_form.values["name"][0]}">
 
                 <button type="submit" name="action" value="create" class="icon-pencil">
@@ -60,7 +60,7 @@
             <c:choose>
                 <c:when test="${empty categories}">
                     <p>
-                        Es sind noch keine Kategorien vorhanden. 🐏
+                        Es sind noch keine Abteilungen vorhanden. 🐏
                     </p>
                 </c:when>
                 <c:otherwise>

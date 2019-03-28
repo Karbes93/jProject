@@ -15,7 +15,7 @@
 
 <template:base>
     <jsp:attribute name="title">
-        Liste der Projekte
+        Projektliste
     </jsp:attribute>
 
     <jsp:attribute name="head">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/tasks/categories/"/>">Kategorien bearbeiten</a>
+            <a href="<c:url value="/app/tasks/categories/"/>">Abteilung bearbeiten</a>
         </div>
     </jsp:attribute>
 
@@ -42,7 +42,7 @@
             <input type="text" name="search_text" value="${param.search_text}" placeholder="Beschreibung"/>
 
             <select name="search_category">
-                <option value="">Alle Kategorien</option>
+                <option value="">Alle Abteilungen</option>
 
                 <c:forEach items="${categories}" var="category">
                     <option value="${category.id}" ${param.search_category == category.id ? 'selected' : ''}>
@@ -52,7 +52,7 @@
             </select>
 
             <select name="search_status">
-                <option value="">Alle Stati</option>
+                <option value="">Alle Status</option>
 
                 <c:forEach items="${statuses}" var="status">
                     <option value="${status}" ${param.search_status == status ? 'selected' : ''}>
@@ -70,7 +70,7 @@
         <c:choose>
             <c:when test="${empty tasks}">
                 <p>
-                    Es wurden keine Aufgaben gefunden. 🐈
+                    Es wurden keine Projekte gefunden. 🐈
                 </p>
             </c:when>
             <c:otherwise>
@@ -80,7 +80,7 @@
                     <thead>
                         <tr>
                             <th>Bezeichnung</th>
-                            <th>Kategorie</th>
+                            <th>Abteilung</th>
                             <th>Eigentümer</th>
                             <th>Status</th>
                             <th>Fällig am</th>

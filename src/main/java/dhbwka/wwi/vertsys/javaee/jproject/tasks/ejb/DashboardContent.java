@@ -100,7 +100,7 @@ public class DashboardContent implements DashboardContentProvider {
                 case CANCELED:
                     icon = "cancel";
                     break;
-                case POSTPONED:
+                case WAITING:
                     icon = "bell-off-empty";
                     break;
             }
