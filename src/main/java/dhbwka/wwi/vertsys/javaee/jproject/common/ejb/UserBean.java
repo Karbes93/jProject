@@ -70,7 +70,20 @@ public class UserBean {
         }
 
         user.setPassword(newPassword);
+        em.merge(user);
     }
+    
+    @RolesAllowed("app-user")
+    public void updateFirstName(User user, String firstname){
+        user.setVorname(firstname);
+        em.merge(user);
+    }
+    
+    @RolesAllowed("app-user")
+    public void updateLastName(User user, String lastname){
+    user.setNachname(lastname);
+    em.merge(user);
+}
     
     /**
      * Benutzer löschen

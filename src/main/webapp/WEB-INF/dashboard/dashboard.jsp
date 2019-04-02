@@ -34,6 +34,10 @@
         <div class="menuitem">
             <a href="<c:url value="/app/tasks/categories/"/>">Projekte bearbeiten</a>
         </div>
+        
+        <div class="menuitem">
+            <a href="<c:url value="/app/change/"/>">Userdaten bearbeiten</a>
+        </div>
     </jsp:attribute>
 
     <jsp:attribute name="content">
