@@ -32,7 +32,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/tasks/categories/"/>">Projekte bearbeiten</a>
+            <a href="<c:url value="/app/tasks/categories/"/>">Abteilung bearbeiten</a>
         </div>
         
         <div class="menuitem">
