@@ -85,6 +85,7 @@ public class Task implements Serializable {
         this.dueTime = dueTime;
     }
     //</editor-fold>
+    
 
     //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
     public long getId() {

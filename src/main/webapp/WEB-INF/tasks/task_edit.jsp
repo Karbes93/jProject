@@ -17,7 +17,7 @@
     <jsp:attribute name="title">
         <c:choose>
             <c:when test="${edit}">
-                Projekt bearbeiten
+                Abteilung bearbeiten
             </c:when>
             <c:otherwise>
                 Projekt anlegen

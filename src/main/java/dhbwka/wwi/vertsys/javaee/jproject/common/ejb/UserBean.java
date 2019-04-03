@@ -10,6 +10,7 @@
 package dhbwka.wwi.vertsys.javaee.jproject.common.ejb;
 
 import dhbwka.wwi.vertsys.javaee.jproject.common.jpa.User;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBContext;
@@ -54,6 +55,10 @@ public class UserBean {
         User user = new User(username, vorname, nachname, password);
         user.addToGroup("app-user");
         em.persist(user);
+    }
+    
+    public List<User> findAll(){
+        return this.em.createQuery("SELECT u FROM User u").getResultList();
     }
 
     /**
