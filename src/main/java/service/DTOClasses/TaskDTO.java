@@ -13,25 +13,17 @@ import dhbwka.wwi.vertsys.javaee.jproject.common.jpa.User;
 import dhbwka.wwi.vertsys.javaee.jproject.tasks.jpa.Category;
 import dhbwka.wwi.vertsys.javaee.jproject.tasks.jpa.Task;
 import dhbwka.wwi.vertsys.javaee.jproject.tasks.jpa.TaskStatus;
-import java.sql.Date;
 import java.sql.Time;
+import java.sql.Date;
 
 /**
  *
  * @author Nils
  */
-public class TaskDTO {
-    public User owner;
-    public Category category;
-    public String shortText;
-    public String longText;
-    public String longText1;
-    public Date dueDate;
-    public Time dueTime;
-    public TaskStatus status;
-    
+
 /**
  * Konstruktor
+ * @param task
  * @param owner
  * @param category
  * @param shortText
@@ -41,36 +33,42 @@ public class TaskDTO {
  * @param dueTime
  * @param status 
  */    
-    public TaskDTO (User owner, Category category, String shortText, String longText, String longText1, 
-            Date dueDate, Time dueTime, TaskStatus status){
-        this.category = category;
-        this.owner = owner;
-        this.shortText = shortText;
-        this.longText = longText;
-        this.longText1 = longText1;
-        this.dueDate = dueDate;
-        this.dueTime = dueTime;
-        this.status = status;
-    }
+
+    public class TaskDTO {
+    public UserDTO owner;
+    public Category category;
+    public String shortText;
+    public String longText;
+    public String longText1;
+    public Date dueDate;
+    public Time dueTime;
+    public TaskStatus status;
     
     public TaskDTO(){
         
     }
 
-    TaskDTO(Task task) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public TaskDTO(Task task){
+        this.category = task.getCategory();
+        this.owner = new UserDTO(task.getOwner());
+        this.shortText = task.getShortText();
+        this.longText = task.getLongText();
+        this.longText1 = task.getLongText1();
+        this.dueDate = task.getDueDate();
+        this.dueTime = task.getDueTime();
+        this.status = task.getStatus();
     }
 
 /**
  * Getter und Setter
  * @return 
- */    
+ */   
     
-    public User getOwner() {
+    public UserDTO getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(UserDTO owner) {
         this.owner = owner;
     }
 
@@ -106,7 +104,7 @@ public class TaskDTO {
         this.longText1 = longText1;
     }
 
-    public Date getDueDate() {
+    public Date getDueDate() {  
         return dueDate;
     }
 
