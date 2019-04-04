@@ -24,10 +24,10 @@
  *  c.f. :  https://stackoverflow.com/questions/27588665/how-do-i-configure-both-basic-and-form-authentication-methods-in-the-same-java-e
  * 
  */
-package dhbwka.wwi.vertsys.javaee.jproject.common.web;
+package dhbwka.wwi.vertsys.javaee.jtodo.common.web;
 
-import dhbwka.wwi.vertsys.javaee.jproject.common.ejb.UserBean;
-import dhbwka.wwi.vertsys.javaee.jproject.common.jpa.User;
+import dhbwka.wwi.vertsys.javaee.jtodo.common.ejb.UserBean;
+import dhbwka.wwi.vertsys.javaee.jtodo.common.jpa.User;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Base64;

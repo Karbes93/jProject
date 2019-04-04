@@ -37,6 +37,10 @@
         
         <div class="menuitem">
             <a href="<c:url value="/app/change/"/>">Userdaten bearbeiten</a>
+        </div>        
+        
+        <div class="menuitem">
+            <a href="<c:url value="/app/client/"/>">Client application</a>
         </div>
     </jsp:attribute>
 

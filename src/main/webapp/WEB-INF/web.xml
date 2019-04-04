@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <!--
         Authentifizierung / Authorisierung
         ==================================
@@ -23,7 +18,38 @@
         Vgl. https://docs.oracle.com/javaee/7/tutorial/security-advanced003.htm
         Vgl. https://dzone.com/articles/jdbc-realm-and-form-based
     -->
-    
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+        <init-param>
+            <param-name>cors.allowed.origins</param-name>
+            <param-value>*localhost*</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.allowed.methods</param-name>
+            <param-value>GET,POST,HEAD,OPTIONS,PUT,DELETE</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.allowed.headers</param-name>
+            <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.exposed.headers</param-name>
+            <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.support.credentials</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.preflight.maxage</param-name>
+            <param-value>10</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/app/*</url-pattern>
+    </filter-mapping>
     <filter>
         <filter-name>BasicLoginFilter</filter-name>
         <filter-class>dhbwka.wwi.vertsys.javaee.jproject.common.web.BasicLoginFilter</filter-class>
@@ -36,7 +62,6 @@
         <filter-name>BasicLoginFilter</filter-name>
         <url-pattern>/api/*</url-pattern>
     </filter-mapping>
-    
     <security-constraint>
         <display-name>
             Geschützter Bereich für angemeldete Benutzer
@@ -48,7 +73,6 @@
             <web-resource-name>todo-app</web-resource-name>
             <url-pattern>/app/*</url-pattern>
         </web-resource-collection>
-        
         <!--
             Ein Benutzer muss die Rolle "app-user" besitzen, um die
             Seiten aufrufen zu können.
@@ -56,7 +80,6 @@
         <auth-constraint>
             <role-name>app-user</role-name>
         </auth-constraint>
-        
         <!--
             Sicherstellen, dass nur verschlüsselte Verbindungen via HTTPS
             zugelassen werden. Unverschlüsselte HTTP-Anfragen werden auf
@@ -66,7 +89,6 @@
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
-
     <!--
         Übersicht über alle von dieser Webanwendung genutzten Benutzerrollen
         für den Admin. Die Vergabe der Rollen erfolgt durch Hinzufügen der
@@ -81,7 +103,6 @@
         </description>
         <role-name>app-user</role-name>
     </security-role>
-    
     <!--
         Definition der JSP-Dateien mit dem Loginformular und einer Fehlerseite,
         falls der Anwender sich vertippt.
@@ -89,7 +110,6 @@
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>todo-app</realm-name>
-        
         <form-login-config>
             <form-login-page>/WEB-INF/login/login.jsp</form-login-page>
             <form-error-page>/WEB-INF/login/error.jsp</form-error-page>
