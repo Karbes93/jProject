@@ -53,7 +53,7 @@ import javax.servlet.http.HttpServletResponse;
 *
 * <filter>
 * <filter-name>BasicAuthFilter</filter-name>
-* <filter-class>dhbwka.wwi.vertsys.javaee.jtodo.tasks.rest.BasicLoginFilter</filter-class>
+* <filter-class>dhbwka.wwi.vertsys.javaee.jProject.tasks.rest.BasicLoginFilter</filter-class>
 * <init-param>
 * <param-name>role-names-comma-sep</param-name>
 * <param-value>app-user</param-value>

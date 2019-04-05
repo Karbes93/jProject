@@ -70,7 +70,7 @@
             Alle URLs beginnend mit /app/ schützen
         -->
         <web-resource-collection>
-            <web-resource-name>todo-app</web-resource-name>
+            <web-resource-name>jProject-app</web-resource-name>
             <url-pattern>/app/*</url-pattern>
         </web-resource-collection>
         <!--
@@ -109,7 +109,7 @@
     -->
     <login-config>
         <auth-method>FORM</auth-method>
-        <realm-name>todo-app</realm-name>
+        <realm-name>jProject-app</realm-name>
         <form-login-config>
             <form-login-page>/WEB-INF/login/login.jsp</form-login-page>
             <form-error-page>/WEB-INF/login/error.jsp</form-error-page>
