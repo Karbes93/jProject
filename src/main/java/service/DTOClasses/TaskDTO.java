@@ -14,7 +14,10 @@ import dhbwka.wwi.vertsys.javaee.jproject.tasks.jpa.Category;
 import dhbwka.wwi.vertsys.javaee.jproject.tasks.jpa.Task;
 import dhbwka.wwi.vertsys.javaee.jproject.tasks.jpa.TaskStatus;
 import java.sql.Time;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.text.Format;
+import java.util.Date;
+
 
 /**
  *
@@ -34,28 +37,29 @@ import java.sql.Date;
  * @param status 
  */    
 
-    public class TaskDTO {
+public class TaskDTO {
     public UserDTO owner;
     public Category category;
     public String shortText;
     public String longText;
     public String longText1;
-    public Date dueDate;
-    public Time dueTime;
+    private String dueDate;
+    //public String dueTime;
     public TaskStatus status;
     
-    public TaskDTO(){
-        
+    public TaskDTO(){ 
     }
 
+    Format formatter = new SimpleDateFormat("dd.MM.yyyy");
+    
     public TaskDTO(Task task){
         this.category = task.getCategory();
         this.owner = new UserDTO(task.getOwner());
         this.shortText = task.getShortText();
         this.longText = task.getLongText();
         this.longText1 = task.getLongText1();
-        this.dueDate = task.getDueDate();
-        this.dueTime = task.getDueTime();
+        this.dueDate = formatter.format(task.getDueDate());
+        //this.dueTime = task.getDueTime();
         this.status = task.getStatus();
     }
 
@@ -104,21 +108,29 @@ import java.sql.Date;
         this.longText1 = longText1;
     }
 
-    public Date getDueDate() {  
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
-    public Time getDueTime() {
+    /*public Date getDueDate() {  
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    /*public Time getDueTime() {
         return dueTime;
     }
 
     public void setDueTime(Time dueTime) {
         this.dueTime = dueTime;
-    }
+    }*/
 
     public TaskStatus getStatus() {
         return status;
