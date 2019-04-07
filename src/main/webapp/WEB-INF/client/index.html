@@ -16,11 +16,25 @@ Creative Commons Namensnennung 4.0 International Lizenz.
 
     </head>
     <body>
-    <textarea id="api-response" style="width:300px; height:300px; background:black;color:lime;"></textarea>
-    <script>
+      <div style="width:100%">
+        <div style="width:30%;display: inline-block;">
+        Category API<BR>
+        <textarea id="api-response1" style="width:300px; height:300px; background:black;color:lime;"></textarea><BR><BR>
+        </div>
+        <div style="width:30%;display: inline-block;">
+        Task API<BR>
+        <textarea id="api-response2" style="width:300px; height:300px; background:black;color:lime;"></textarea><BR><BR>
+        </div>
+        <div style="width:30%;display: inline-block;">
+        User API<BR>
+        <textarea id="api-response3" style="width:300px; height:300px; background:black;color:lime;"></textarea><BR><BR>
+        </div>
+      </div>
+      <script>
         const user = prompt("Please enter the username");
         const pw = prompt("Please enter the password");
 
+        // call to Category API
         fetch('https://localhost:8443/jProject/webresources/api/category/', {
             method: 'GET',
             redirect: 'follow',
@@ -31,7 +45,41 @@ Creative Commons Namensnennung 4.0 International Lizenz.
             })
         })
             .then(res => res.json()).then((jsonObj) => {
-                document.getElementById('api-response').value = JSON.stringify(jsonObj);
+                document.getElementById('api-response1').value = JSON.stringify(jsonObj);
+
+            }).catch(function (error) {
+                console.error(error);
+            });
+            
+        // call to Task API
+        fetch('https://localhost:8443/jProject/webresources/api/task/', {
+            method: 'GET',
+            redirect: 'follow',
+            headers: new Headers({
+                'Accept': 'application/json',
+                'Authorization': 'Basic ' + btoa(user + ':' + pw),
+                'Origin': 'http://localhost'
+            })
+        })
+            .then(res => res.json()).then((jsonObj) => {
+                document.getElementById('api-response2').value = JSON.stringify(jsonObj);
+
+            }).catch(function (error) {
+                console.error(error);
+            });
+        
+        // Call to User API
+        fetch('https://localhost:8443/jProject/webresources/api/user/', {
+            method: 'GET',
+            redirect: 'follow',
+            headers: new Headers({
+                'Accept': 'application/json',
+                'Authorization': 'Basic ' + btoa(user + ':' + pw),
+                'Origin': 'http://localhost'
+            })
+        })
+            .then(res => res.json()).then((jsonObj) => {
+                document.getElementById('api-response3').value = JSON.stringify(jsonObj);
 
             }).catch(function (error) {
                 console.error(error);
