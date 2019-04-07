@@ -62,6 +62,18 @@
         <filter-name>BasicLoginFilter</filter-name>
         <url-pattern>/api/*</url-pattern>
     </filter-mapping>
+    <filter>
+        <filter-name>BasicLoginFilterRest</filter-name>
+        <filter-class>dhbwka.wwi.vertsys.javaee.jproject.common.web.BasicLoginFilter</filter-class>
+        <init-param>
+            <param-name>role-names-comma-sep</param-name>
+            <param-value>app-user</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>BasicLoginFilterRest</filter-name>
+        <url-pattern>/webresources/*</url-pattern>
+    </filter-mapping>
     <security-constraint>
         <display-name>
             Geschützter Bereich für angemeldete Benutzer
